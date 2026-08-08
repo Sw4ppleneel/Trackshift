@@ -17,7 +17,7 @@ const NAV = [
   { label: "tracks", href: "#tracks" },
   { label: "partners", href: "#partners" },
   { label: "prize", href: "#prizes" },
-  { label: "trackshift ‘25", href: "#apply" },
+  { label: "trackshift ‘25", href: "#lookback" },
 ];
 
 const STATS = [
@@ -118,7 +118,7 @@ export function Hero() {
             prize
           </a>
           <a
-            href="#apply"
+            href="#lookback"
             className="hidden text-[20px] font-bold uppercase text-white transition-colors hover:text-haas-red lg:absolute lg:left-[1190.5px] lg:top-[67px] lg:block"
           >
             {redPunct("trackshift ‘25")}
