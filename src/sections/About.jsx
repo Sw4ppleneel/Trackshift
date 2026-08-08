@@ -19,8 +19,6 @@ const P1 =
 const P2 =
   "Over 24 hours in September, 150+ student engineers take on three real problems from 2026 season. Ones that working engineers inside the paddock are wrestling with right now.";
 
-const TAG = "Its lights’ out and away we go!";
-
 export function About() {
   const [ref, live] = useInView(0);
 
@@ -125,7 +123,8 @@ export function About() {
           </p>
 
           <p className="max-w-[444px] text-[20px] font-bold uppercase leading-[1.3] text-haas-red lg:absolute lg:left-[266px] lg:top-[838px] lg:w-[444px] lg:max-w-[444px] lg:text-right lg:text-[32px] lg:leading-[1.25]">
-            {redPunct(TAG)}
+            Its lights<span className="text-white">’</span> out and away we go
+            <span className="text-white">!</span>
           </p>
         </div>
       </div>

@@ -97,8 +97,7 @@ export function Problems() {
             Uniform size throughout — confirmed against the Figma mobile PDF
             export, no word-level size accent on "off". */}
         <h3 className="relative z-10 mt-2 max-w-[913px] px-6 text-[clamp(26px,5vw,48px)] font-black uppercase leading-none text-white lg:absolute lg:left-[431px] lg:top-[122px] lg:mt-0 lg:px-0 lg:text-[48px]">
-          Straight off the <span className="text-haas-red">2o26 grid</span>
-          <span className="text-haas-red">.</span>
+          Straight off the <span className="text-haas-red">2o26 grid</span>.
         </h3>
         {/* 114:179 — the comma after "problem" is also red in the design. */}
         <p className="relative z-10 mt-3 max-w-[839px] px-6 text-center text-[clamp(18px,3vw,28px)] font-bold uppercase text-white lg:absolute lg:left-[301px] lg:top-[224px] lg:mt-0 lg:px-0 lg:text-[28px]">
