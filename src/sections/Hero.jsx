@@ -167,26 +167,36 @@ export function Hero() {
                 </div>
               ))}
             </div>
-            <div className="flex items-start gap-16 lg:hidden">
+            <div className="flex items-start gap-[39px] lg:hidden">
               {[STATS[0], STATS[2]].map((s) => (
                 <div key={s.label} className="flex min-w-0 flex-col items-center">
-                  <span className="text-[clamp(30px,7vw,58px)] font-black uppercase leading-none text-haas-red">
+                  <span className="text-[clamp(30px,9.2vw,58px)] font-black uppercase leading-none text-haas-red">
                     {s.value}
                   </span>
-                  <span className="mt-[5px] text-[clamp(13px,4.2vw,24px)] font-extrabold uppercase text-white">
+                  <span className="mt-[5px] text-[clamp(16px,5.55vw,35px)] font-extrabold uppercase text-white">
                     {s.label}
                   </span>
                 </div>
               ))}
             </div>
             <div className="relative flex min-w-0 flex-col items-center lg:hidden">
+              {/* Mobile flanking pair (233:150 `Group 106`) — in the iPhone
+                  13/14 export these are two 351.6×41 blades that sit CLEAR of
+                  the "3 problems" stack: the left one's top-right corner
+                  stops at x80.6 and the right one starts at x309.5 on the
+                  390pt frame, i.e. 43.7px of empty black either side of the
+                  141.5px-wide "PROBLEMS". Anchoring them to the column's own
+                  edges (`right/left: 100% + 44px`) keeps that gap at every
+                  width; the previous ±100px-from-centre offsets made two
+                  210px blades overlap through the middle and read as one
+                  continuous rule straight through the type. */}
               <SpeedStreak
                 viewBox={VB_BLADE_345}
                 d={P_BLADE_345}
                 delay={0.15}
                 strokeWidth={1}
                 restOpacity={0.5}
-                className="left-1/2 top-1/2 -z-10 h-[24px] w-[210px] -translate-x-[calc(50%+100px)] -translate-y-1/2"
+                className="right-[calc(100%+44px)] top-1/2 -z-10 h-[41px] w-[352px] -translate-y-1/2"
               />
               <SpeedStreak
                 viewBox={VB_BLADE_345}
@@ -194,12 +204,12 @@ export function Hero() {
                 delay={0.25}
                 strokeWidth={1}
                 restOpacity={0.5}
-                className="left-1/2 top-1/2 -z-10 h-[24px] w-[210px] translate-x-[calc(-50%+100px)] -translate-y-1/2 scale-x-[-1]"
+                className="left-[calc(100%+44px)] top-1/2 -z-10 h-[41px] w-[352px] -translate-y-1/2 scale-x-[-1]"
               />
-              <span className="text-[clamp(30px,7vw,58px)] font-black uppercase leading-none text-haas-red">
+              <span className="text-[clamp(30px,9.2vw,58px)] font-black uppercase leading-none text-haas-red">
                 {STATS[1].value}
               </span>
-              <span className="mt-[5px] text-[clamp(13px,4.2vw,24px)] font-extrabold uppercase text-white">
+              <span className="mt-[5px] text-[clamp(16px,5.55vw,35px)] font-extrabold uppercase text-white">
                 {STATS[1].label}
               </span>
             </div>
@@ -221,7 +231,7 @@ export function Hero() {
               delay={0.2}
               strokeWidth={1.4}
               restOpacity={0.8}
-              className="left-1/2 top-[38px] -z-10 h-[70px] w-[380px] -translate-x-1/2 sm:w-[460px] lg:h-[151px] lg:w-[1568px]"
+              className="left-1/2 top-[37px] -z-10 h-[46px] w-[calc(100vw+82px)] -translate-x-1/2 lg:h-[151px] lg:w-[1568px]"
             />
             <a
               href="#apply"

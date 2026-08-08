@@ -102,16 +102,33 @@ export function Partners() {
           restOpacity={0.7}
           className="left-1/2 top-[89px] -z-10 hidden h-[150px] w-[1567px] -translate-x-1/2 lg:block"
         />
+        {/*
+          The mobile bracket is a 450.2×44.8 open rail on the 390pt frame:
+          symmetric (it bleeds 29.6 off BOTH edges) with its flat span passing
+          through the vertical CENTRE of the heading's capitals. Checked
+          against the export's glyph baselines: "PARTNERS" sits on y5780 and
+          the rail is at y5768, which is its cap midpoint to within a pixel —
+          the same holds for the podium, weekend and lookback rails.
+
+          So it's sized from the viewport (`100% + 60px`, centred) instead of
+          being pinned at left:-29px/w:449px, which only lined up at exactly
+          390px wide and went asymmetric on any real handset.
+
+          The vertical offset is derived, not eyeballed: Orbitron measures
+          ascent 1.01em / cap 0.72em, so at line-height 1.5 the cap midpoint
+          lands 0.775em below the text box top. 2.5rem is the heading's own
+          pt-10, and −1px backs the rail out of the bracket's stroke box.
+        */}
         <SpeedStreak
           viewBox={VB_HERO_BRACKET_M}
           d={P_HERO_BRACKET_M}
           delay={0.1}
           strokeWidth={1.4}
           restOpacity={0.7}
-          className="left-[-29px] top-[40px] -z-10 h-[45px] w-[449px] lg:hidden"
+          className="left-1/2 top-[calc(2.5rem+clamp(20px,6.36vw,31px)-1px)] -z-10 h-[45px] w-[calc(100%+60px)] -translate-x-1/2 lg:hidden"
         />
 
-        <h2 className="relative z-10 px-6 pt-10 text-center text-[clamp(26px,5vw,48px)] font-black uppercase text-white lg:absolute lg:inset-x-0 lg:top-[63px] lg:px-0 lg:pt-0 lg:text-[48px]">
+        <h2 className="relative z-10 px-6 pt-10 text-center text-[clamp(26px,8.2vw,40px)] font-black uppercase text-white lg:absolute lg:inset-x-0 lg:top-[63px] lg:px-0 lg:pt-0 lg:text-[48px]">
           partners
         </h2>
 

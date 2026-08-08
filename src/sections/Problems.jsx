@@ -76,15 +76,16 @@ export function Problems() {
         />
         {/* Mobile diagonal blade (233:176) — crosses from behind "problems."
             down to "Straight off", same shape as the desktop blade above but
-            re-scaled to span the two mobile heading lines instead of sitting
-            beside a single desktop line. */}
+            re-scaled to span the mobile heading lines instead of sitting
+            beside a single desktop line. Box measured off the export's own
+            vector: x43.9..346.7, 302.9×71 on the 390pt frame. */}
         <SpeedStreak
           viewBox={VB_BLADE_713}
           d={P_BLADE_713}
           delay={0.15}
           strokeWidth={2}
           restOpacity={0.5}
-          className="left-[22px] top-[84px] -z-10 h-[70px] w-[300px] lg:hidden"
+          className="left-[44px] top-[76px] -z-10 h-[71px] w-[303px] lg:hidden"
         />
 
         <h2 className="relative z-10 px-6 pt-10 text-right text-[clamp(26px,5vw,48px)] font-black uppercase leading-none text-white lg:absolute lg:left-[218px] lg:top-[63px] lg:w-[532px] lg:px-0 lg:pt-0 lg:text-[48px]">

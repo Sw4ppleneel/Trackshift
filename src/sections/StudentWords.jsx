@@ -4,7 +4,7 @@ import CarouselNav from "../components/CarouselNav";
 import useCarousel from "../components/useCarousel";
 import useInView from "../components/useInView";
 import { redPunct } from "../components/RedPunct";
-import { P_BLADE_975, VB_BLADE_975 } from "../components/paths";
+import { P_BLADE_975, VB_BLADE_975, P_BLADE_350_M, VB_BLADE_350_M } from "../components/paths";
 
 /**
  * `student words` (114:374) — 1440×737, page y 6605. A 778×430 quote card
@@ -53,7 +53,17 @@ export function StudentWords() {
           restOpacity={0.5}
           className="left-[-125px] top-[99px] -z-10 hidden h-[55px] w-[975px] lg:block"
         />
-        <h2 className="relative z-10 px-6 pt-10 text-[clamp(30px,6vw,60px)] font-black uppercase leading-none text-white lg:absolute lg:left-[158px] lg:top-[69px] lg:px-0 lg:pt-0 lg:text-[60px]">
+        <h2 className="relative z-10 px-6 pt-10 text-[clamp(24px,8.2vw,44px)] font-black uppercase leading-none text-white lg:absolute lg:left-[158px] lg:top-[69px] lg:px-0 lg:pt-0 lg:text-[60px]">
+          {/* Mobile heading blade (237:536) — same geometry as Leadership's,
+              x-61.1..300.1 on the 390pt frame. See the note there. */}
+          <SpeedStreak
+            viewBox={VB_BLADE_350_M}
+            d={P_BLADE_350_M}
+            delay={0.12}
+            strokeWidth={2}
+            restOpacity={0.5}
+            className="left-[calc(1.5rem-2.66em)] top-[calc(2.5rem+0.525em-2px)] -z-10 h-[1.03em] w-[11.28em] lg:hidden"
+          />
           student words
         </h2>
 

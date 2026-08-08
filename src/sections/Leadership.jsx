@@ -6,7 +6,7 @@ import CarouselNav from "../components/CarouselNav";
 import useInView from "../components/useInView";
 import useCarousel from "../components/useCarousel";
 import { redPunct } from "../components/RedPunct";
-import { P_BLADE_791, VB_BLADE_791 } from "../components/paths";
+import { P_BLADE_791, VB_BLADE_791, P_BLADE_350_M, VB_BLADE_350_M } from "../components/paths";
 
 /**
  * `leadership` (114:355) — 1440×737, page y 5857. Section-heading blade + the
@@ -62,7 +62,22 @@ export function Leadership() {
           restOpacity={0.5}
           className="left-[-125px] top-[99px] -z-10 hidden h-[55px] w-[791px] lg:block"
         />
-        <h2 className="relative z-10 px-6 pt-10 text-[clamp(30px,6vw,60px)] font-black uppercase leading-none text-white lg:absolute lg:left-[158px] lg:top-[69px] lg:px-0 lg:pt-0 lg:text-[60px]">
+        <h2 className="relative z-10 px-6 pt-10 text-[clamp(24px,8.2vw,44px)] font-black uppercase leading-none text-white lg:absolute lg:left-[158px] lg:top-[69px] lg:px-0 lg:pt-0 lg:text-[60px]">
+          {/* Mobile heading blade (237:531) — the export has one here and the
+              desktop-only blade above left mobile with none at all. It's a
+              361.1×33 parallelogram at x-61.1..300.1 on the 390pt frame, so
+              its top rail crosses the middle of the capitals (48% of cap
+              height) and its body runs on past the word to the right. Sized
+              from the viewport so it keeps bleeding off the left edge at any
+              width, and in `em` vertically so it tracks the clamped type. */}
+          <SpeedStreak
+            viewBox={VB_BLADE_350_M}
+            d={P_BLADE_350_M}
+            delay={0.12}
+            strokeWidth={2}
+            restOpacity={0.5}
+            className="left-[calc(1.5rem-2.66em)] top-[calc(2.5rem+0.525em-2px)] -z-10 h-[1.03em] w-[11.28em] lg:hidden"
+          />
           leadership
         </h2>
 

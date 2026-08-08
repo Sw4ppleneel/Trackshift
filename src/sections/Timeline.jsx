@@ -55,13 +55,15 @@ export function Timeline() {
 
         {/* `Rectangle 24` (114:251 desktop / 237:303 mobile) — same open
             bracket as Prizes/Partners/Lookback/the Hero CTA. */}
+        {/* Symmetric viewport-width rail through the middle of the heading's
+            first line — see the note in Partners.jsx for the geometry. */}
         <SpeedStreak
           viewBox={VB_HERO_BRACKET_M}
           d={P_HERO_BRACKET_M}
           delay={0.1}
           strokeWidth={1.4}
           restOpacity={0.7}
-          className="left-[-29px] top-[83px] -z-10 h-[45px] w-[449px] lg:hidden"
+          className="left-1/2 top-[calc(2.5rem+clamp(20px,6.36vw,31px)-1px)] -z-10 h-[45px] w-[calc(100%+60px)] -translate-x-1/2 lg:hidden"
         />
         <SpeedStreak
           viewBox={VB_HERO_BRACKET}
@@ -72,7 +74,7 @@ export function Timeline() {
           className="left-1/2 top-[89px] -z-10 hidden h-[150px] w-[1567px] -translate-x-1/2 lg:block"
         />
 
-        <h2 className="relative z-10 px-6 pt-10 text-center text-[clamp(26px,5vw,48px)] font-black uppercase text-white lg:absolute lg:inset-x-0 lg:top-[63px] lg:px-0 lg:pt-0 lg:text-[48px]">
+        <h2 className="relative z-10 px-6 pt-10 text-center text-[clamp(26px,8.2vw,40px)] font-black uppercase text-white lg:absolute lg:inset-x-0 lg:top-[63px] lg:px-0 lg:pt-0 lg:text-[48px]">
           How the weekend runs
         </h2>
 
@@ -114,8 +116,10 @@ export function Timeline() {
               restOpacity={0.6}
               className="left-0 top-0 -z-10 h-[5px] w-[33px]"
             />
+            {/* Measured 33×82 overall in the export: dashes at y0 and y77,
+                the 1px rule running y2..80 between them. */}
             <span
-              className="absolute left-1/2 top-[5px] -z-10 h-[72px] w-px -translate-x-1/2 bg-haas-red"
+              className="absolute left-1/2 top-[2px] -z-10 h-[78px] w-px -translate-x-1/2 bg-haas-red"
               style={{ opacity: 0.7 }}
             />
             <SpeedStreak

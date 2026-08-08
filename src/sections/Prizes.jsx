@@ -60,13 +60,15 @@ export function Prizes() {
         {/* `Rectangle 24` (114:220 desktop / 237:260 mobile) — same open
             bracket as Partners/Lookback/the Hero CTA, framing the section
             title at both sizes. */}
+        {/* Symmetric viewport-width rail through the middle of "WHAT’S ON",
+            the heading's first line — see the note in Partners.jsx. */}
         <SpeedStreak
           viewBox={VB_HERO_BRACKET_M}
           d={P_HERO_BRACKET_M}
           delay={0.1}
           strokeWidth={1.4}
           restOpacity={0.7}
-          className="left-[-29px] top-[61px] -z-10 h-[45px] w-[449px] lg:hidden"
+          className="left-1/2 top-[calc(2.5rem+clamp(20px,6.36vw,31px)-1px)] -z-10 h-[45px] w-[calc(100%+60px)] -translate-x-1/2 lg:hidden"
         />
         <SpeedStreak
           viewBox={VB_HERO_BRACKET}
@@ -78,23 +80,46 @@ export function Prizes() {
         />
 
         <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-col items-center px-6 pb-16 pt-10 lg:absolute lg:inset-x-0 lg:top-0 lg:px-0 lg:pb-0 lg:pt-0">
-          <h2 className="text-[clamp(26px,5vw,48px)] font-black uppercase text-white lg:absolute lg:left-1/2 lg:top-[63px] lg:-translate-x-1/2 lg:text-[48px]">
-            {redPunct("What’s on the podium")}
+          {/* Two centred lines on mobile — "WHAT’S ON" / "THE PODIUM"
+              (both at cx 193.5 on the 390pt frame), not the left-aligned
+              "WHAT’S ON THE / PODIUM" that free wrapping produced. The break
+              is explicit because the design's is, and `text-center` was
+              simply missing here. */}
+          <h2 className="text-center text-[clamp(26px,8.2vw,40px)] font-black uppercase text-white lg:absolute lg:left-1/2 lg:top-[63px] lg:-translate-x-1/2 lg:text-[48px]">
+            {redPunct("What’s on")}
+            <br className="lg:hidden" />{" "}
+            {redPunct("the podium")}
           </h2>
 
           <div className="relative mt-6 lg:contents">
-            <p className="text-[clamp(22px,4vw,40px)] font-black uppercase text-white lg:absolute lg:left-1/2 lg:top-[155px] lg:mt-0 lg:-translate-x-1/2 lg:text-[40px]">
+            {/*
+              Each mobile caption parallelogram wraps ITS OWN words rather than
+              sitting under them. In the iPhone 13/14 export the blade is
+              centred on the caption and overhangs it by ~64–76px, with its
+              body straddling the lower half of the capitals and finishing a
+              little below the baseline — the words sit inside the box, they
+              are not underlined by it. Measured on the 390pt frame:
+                "Global exposure"      text 186.4 wide → blade 250.7×17.5
+                "Internships"          text 123.8 wide → blade 198.1×18.0
+                "all participants get" text 222.4 wide → blade 298.1×21.0
+              So the blade is absolutely positioned inside the caption (whose
+              flex parent already shrink-wraps it to the text) and sized in
+              `em`, which keeps the overhang and the vertical straddle in
+              proportion as the `clamp()` type scales. It was previously an
+              in-flow `block` with `mt-1`, which is what pushed every
+              parallelogram down into the gap below its heading.
+            */}
+            <p className="relative text-[clamp(15px,4.1vw,22px)] font-black uppercase text-white lg:absolute lg:left-1/2 lg:top-[155px] lg:mt-0 lg:-translate-x-1/2 lg:text-[40px]">
+              <svg
+                viewBox={VB_BLADE_192}
+                preserveAspectRatio="none"
+                aria-hidden="true"
+                className="pointer-events-none absolute left-1/2 top-[calc(50%+0.385em)] -z-10 h-[1.1em] w-[calc(100%+4.02em)] -translate-x-1/2 -translate-y-1/2 lg:hidden"
+              >
+                <path d={P_BLADE_192} fill="none" stroke="#D6001C" strokeWidth={2} opacity={0.5} vectorEffect="non-scaling-stroke" />
+              </svg>
               Global exposure
             </p>
-            {/* In-flow, not `SpeedStreak` — see the Internships note below. */}
-            <svg
-              viewBox={VB_BLADE_192}
-              preserveAspectRatio="none"
-              aria-hidden="true"
-              className="mx-auto mt-1 block h-[16px] w-[70%] max-w-[246px] lg:hidden"
-            >
-              <path d={P_BLADE_192} fill="none" stroke="#D6001C" strokeWidth={2} opacity={0.5} vectorEffect="non-scaling-stroke" />
-            </svg>
             <SpeedStreak
               viewBox={VB_BLADE_558}
               d={P_BLADE_558}
@@ -171,20 +196,18 @@ export function Prizes() {
 
           <div className="mt-12 flex flex-col items-center lg:absolute lg:inset-x-0 lg:top-0 lg:mt-0">
             <div className="relative lg:contents">
-              <p className="text-[clamp(22px,4vw,32px)] font-black uppercase text-white lg:absolute lg:left-1/2 lg:top-[849px] lg:-translate-x-1/2 lg:text-[32px]">
+              {/* Blade wraps the word — see the note on "Global exposure". */}
+              <p className="relative text-[clamp(15px,4.1vw,22px)] font-black uppercase text-white lg:absolute lg:left-1/2 lg:top-[849px] lg:-translate-x-1/2 lg:text-[32px]">
+                <svg
+                  viewBox={VB_BLADE_192}
+                  preserveAspectRatio="none"
+                  aria-hidden="true"
+                  className="pointer-events-none absolute left-1/2 top-[calc(50%+0.51em)] -z-10 h-[1.125em] w-[calc(100%+4.64em)] -translate-x-1/2 -translate-y-1/2 lg:hidden"
+                >
+                  <path d={P_BLADE_192} fill="none" stroke="#D6001C" strokeWidth={2} opacity={0.5} vectorEffect="non-scaling-stroke" />
+                </svg>
                 Internships
               </p>
-              {/* In-flow, not `SpeedStreak` (which is unconditionally
-                  `absolute` and reserves no space) — that let this overlap
-                  the paragraph below it instead of pushing it down. */}
-              <svg
-                viewBox={VB_BLADE_192}
-                preserveAspectRatio="none"
-                aria-hidden="true"
-                className="mx-auto mt-1 block h-[16px] w-[70%] max-w-[192px] lg:hidden"
-              >
-                <path d={P_BLADE_192} fill="none" stroke="#D6001C" strokeWidth={2} opacity={0.5} vectorEffect="non-scaling-stroke" />
-              </svg>
               <SpeedStreak
                 viewBox={VB_BLADE_317}
                 d={P_BLADE_317}
@@ -199,17 +222,18 @@ export function Prizes() {
             </p>
 
             <div className="relative mt-10 lg:contents">
-              <p className="text-[clamp(22px,4vw,32px)] font-black uppercase text-white lg:absolute lg:left-1/2 lg:top-[971px] lg:mt-0 lg:-translate-x-1/2 lg:text-[32px]">
+              {/* Blade wraps the words — see the note on "Global exposure". */}
+              <p className="relative text-[clamp(15px,4.1vw,22px)] font-black uppercase text-white lg:absolute lg:left-1/2 lg:top-[971px] lg:mt-0 lg:-translate-x-1/2 lg:text-[32px]">
+                <svg
+                  viewBox={VB_BLADE_292}
+                  preserveAspectRatio="none"
+                  aria-hidden="true"
+                  className="pointer-events-none absolute left-1/2 top-[calc(50%+0.6em)] -z-10 h-[1.31em] w-[calc(100%+4.73em)] -translate-x-1/2 -translate-y-1/2 lg:hidden"
+                >
+                  <path d={P_BLADE_292} fill="none" stroke="#D6001C" strokeWidth={2} opacity={0.5} vectorEffect="non-scaling-stroke" />
+                </svg>
                 all participants get
               </p>
-              <svg
-                viewBox={VB_BLADE_292}
-                preserveAspectRatio="none"
-                aria-hidden="true"
-                className="mx-auto mt-1 block h-[19px] w-[76%] max-w-[292px] lg:hidden"
-              >
-                <path d={P_BLADE_292} fill="none" stroke="#D6001C" strokeWidth={2} opacity={0.5} vectorEffect="non-scaling-stroke" />
-              </svg>
               <SpeedStreak
                 viewBox={VB_BLADE_568}
                 d={P_BLADE_568}

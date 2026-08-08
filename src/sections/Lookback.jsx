@@ -34,16 +34,18 @@ export function Lookback() {
           restOpacity={0.7}
           className="left-1/2 top-[87px] -z-10 hidden h-[150px] w-[1567px] -translate-x-1/2 lg:block"
         />
+        {/* Symmetric viewport-width rail through the middle of the heading —
+            see the note in Partners.jsx for the geometry. */}
         <SpeedStreak
           viewBox={VB_HERO_BRACKET_M}
           d={P_HERO_BRACKET_M}
           delay={0.1}
           strokeWidth={1.4}
           restOpacity={0.7}
-          className="left-[-29px] top-[39px] -z-10 h-[45px] w-[449px] lg:hidden"
+          className="left-1/2 top-[calc(2.5rem+clamp(20px,6.36vw,31px)-1px)] -z-10 h-[45px] w-[calc(100%+60px)] -translate-x-1/2 lg:hidden"
         />
 
-        <h2 className="relative z-10 px-6 pt-10 text-center text-[clamp(26px,5vw,48px)] font-black uppercase text-white lg:absolute lg:inset-x-0 lg:top-[61px] lg:px-0 lg:pt-0 lg:text-[48px]">
+        <h2 className="relative z-10 px-6 pt-10 text-center text-[clamp(26px,8.2vw,40px)] font-black uppercase text-white lg:absolute lg:inset-x-0 lg:top-[61px] lg:px-0 lg:pt-0 lg:text-[48px]">
           a lookback
         </h2>
 

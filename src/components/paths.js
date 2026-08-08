@@ -90,3 +90,14 @@ export const P_BLADE_192 = "M 190.473 0.5 L 170.023 15.5 L 1.52734 15.5 L 21.976
 export const VB_BLADE_192 = "0 0 192 16";
 export const P_BLADE_292 = "M 290.474 0.5 L 265.945 18.5 L 1.52637 18.5 L 26.0547 0.5 Z";
 export const VB_BLADE_292 = "0 0 292 19";
+
+/**
+ * Mobile section-heading blade (237:531 leadership / 237:536 student words /
+ * 237:611 FAQs) — the closed parallelogram that crosses the middle of a
+ * left-aligned section heading. Traced from the iPhone 13/14 export's own
+ * vector (centre-line 349.84×29, bbox 361.1×33 at the 390pt frame), not a CSS
+ * reflow of the desktop `P_BLADE_791`: at mobile scale the notch is 11.2% of
+ * the width rather than the desktop trace's 9.4%.
+ */
+export const P_BLADE_350_M = "M 39.16 0 H 349.84 L 310.68 29 H 0 Z";
+export const VB_BLADE_350_M = "0 0 350 29";
