@@ -128,7 +128,7 @@ export function Hero() {
         {/* Copy block — centred stack, absolute at the design's y at lg.
             `Build. compete. innovate.` (114:102) is hidden in the Figma, so the
             headline is the first line and the stack starts at page y320. */}
-        <div className="relative z-10 mx-auto flex w-full max-w-[1055px] flex-col items-center px-6 pt-[180px] text-center lg:absolute lg:inset-x-0 lg:top-[320px] lg:mx-auto lg:px-0 lg:pt-0">
+        <div className="relative z-10 mx-auto flex w-full max-w-[1055px] flex-col items-center px-6 pt-[64px] text-center lg:absolute lg:inset-x-0 lg:top-[320px] lg:mx-auto lg:px-0 lg:pt-0">
           {/* 114:103 — the comma after "pitstop" and the closing full stop
               are both red in the design (not just periods/apostrophes, this
               one comma specifically), so they're hardcoded rather than run
