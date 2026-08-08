@@ -117,10 +117,10 @@ export function About() {
             Written into the future<span className="text-haas-red">.</span>
           </h3>
 
-          <p className="max-w-[541px] text-[14px] font-medium leading-[1.5] text-white lg:absolute lg:left-[829px] lg:top-[636px] lg:max-w-[360px] lg:text-[16px] lg:leading-[1.375]">
+          <p className="font-helvetica max-w-[541px] text-[14px] font-medium leading-[1.5] text-white lg:absolute lg:left-[829px] lg:top-[636px] lg:max-w-[360px] lg:text-[16px] lg:leading-[1.375]">
             {redPunct(P1)}
           </p>
-          <p className="max-w-[541px] text-[14px] font-medium leading-[1.5] text-white lg:absolute lg:left-[829px] lg:top-[805px] lg:max-w-[360px] lg:text-[16px] lg:leading-[1.375]">
+          <p className="font-helvetica max-w-[541px] text-[14px] font-medium leading-[1.5] text-white lg:absolute lg:left-[829px] lg:top-[805px] lg:max-w-[360px] lg:text-[16px] lg:leading-[1.375]">
             {redPunct(P2)}
           </p>
 

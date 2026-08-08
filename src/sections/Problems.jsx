@@ -74,6 +74,18 @@ export function Problems() {
           restOpacity={0.5}
           className="left-[340px] top-[83px] -z-10 hidden h-[67px] w-[713px] lg:block"
         />
+        {/* Mobile diagonal blade (233:176) — crosses from behind "problems."
+            down to "Straight off", same shape as the desktop blade above but
+            re-scaled to span the two mobile heading lines instead of sitting
+            beside a single desktop line. */}
+        <SpeedStreak
+          viewBox={VB_BLADE_713}
+          d={P_BLADE_713}
+          delay={0.15}
+          strokeWidth={2}
+          restOpacity={0.5}
+          className="left-[22px] top-[84px] -z-10 h-[70px] w-[300px] lg:hidden"
+        />
 
         <h2 className="relative z-10 px-6 pt-10 text-right text-[clamp(26px,5vw,48px)] font-black uppercase leading-none text-white lg:absolute lg:left-[218px] lg:top-[63px] lg:w-[532px] lg:px-0 lg:pt-0 lg:text-[48px]">
           {redPunct("Three problems.")}
@@ -81,11 +93,10 @@ export function Problems() {
         {/* 114:178 — "2o26 grid" is red as a whole phrase, not just its
             punctuation, so it's hardcoded rather than run through
             `redPunct` (which only reddens stray periods/apostrophes).
-            Mobile also sizes "off" and "2o26 grid" up relative to the rest
-            of the line — a size accent that desktop doesn't have. */}
+            Uniform size throughout — confirmed against the Figma mobile PDF
+            export, no word-level size accent on "off". */}
         <h3 className="relative z-10 mt-2 max-w-[913px] px-6 text-[clamp(26px,5vw,48px)] font-black uppercase leading-none text-white lg:absolute lg:left-[431px] lg:top-[122px] lg:mt-0 lg:px-0 lg:text-[48px]">
-          Straight <span className="text-[1.3em] lg:text-[1em]">off</span> the{" "}
-          <span className="text-[1.3em] text-haas-red lg:text-[1em]">2o26 grid</span>
+          Straight off the <span className="text-haas-red">2o26 grid</span>
           <span className="text-haas-red">.</span>
         </h3>
         {/* 114:179 — the comma after "problem" is also red in the design. */}

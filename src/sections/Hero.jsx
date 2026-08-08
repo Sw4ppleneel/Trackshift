@@ -143,47 +143,66 @@ export function Hero() {
             {redPunct("You don’t need to follow the sport to solve the challenge.")}
           </p>
 
-          {/* Date // venue — the separator is the red `//` glyph (190:50),
-              Orbitron 900/32 at 50% opacity, not a rule. */}
-          <div className="mt-[30px] flex items-center gap-[18px] text-[20px] font-normal uppercase text-white lg:mt-[46px] lg:gap-[40px]">
+          {/* Date // venue — stacked on two lines on mobile with no divider
+              (233:127/129, no `//` node in the mobile frame); the red `//`
+              glyph (190:50) only appears in the desktop row. */}
+          <div className="mt-[30px] flex flex-col items-center gap-[6px] text-[20px] font-normal uppercase text-white lg:mt-[46px] lg:flex-row lg:gap-[40px]">
             <span className="lg:text-[22px]">12 - 13, September</span>
-            <span className="text-[22px] font-black leading-none text-haas-red opacity-50 lg:text-[32px] lg:leading-[40px]">
-              //
-            </span>
+            <span className="hidden text-[32px] font-black leading-[40px] text-haas-red opacity-50 lg:block">//</span>
             <span className="lg:text-[22px]">Plaksha University, Mohali</span>
           </div>
 
-          {/* 5o teams / 3 problems / 24 hours */}
-          <div className="relative mt-[36px] flex w-full max-w-[708px] items-start justify-between gap-2 lg:mt-[93px] lg:gap-0">
-            {/* Mobile flanking blades (233:150, `Group 106`) — desktop's pair
-                lives further down, off-canvas at the full 1440 width; mobile
-                needs its own smaller instances bleeding off this row. */}
-            <SpeedStreak
-              viewBox={VB_BLADE_345}
-              d={P_BLADE_345}
-              delay={0.15}
-              strokeWidth={1}
-              restOpacity={0.5}
-              className="left-[-90px] top-1/2 -z-10 h-[24px] w-[210px] -translate-y-1/2 lg:hidden"
-            />
-            <SpeedStreak
-              viewBox={VB_BLADE_345}
-              d={P_BLADE_345}
-              delay={0.25}
-              strokeWidth={1}
-              restOpacity={0.5}
-              className="right-[-90px] top-1/2 -z-10 h-[24px] w-[210px] -translate-y-1/2 scale-x-[-1] lg:hidden"
-            />
-            {STATS.map((s) => (
-              <div key={s.label} className="flex min-w-0 flex-col items-center">
-                <span className="text-[clamp(30px,7vw,58px)] font-black uppercase leading-none text-haas-red lg:text-[58.34px]">
-                  {s.value}
-                </span>
-                <span className="mt-[5px] text-[clamp(13px,4.2vw,24px)] font-extrabold uppercase text-white lg:text-[35px] lg:leading-[44px]">
-                  {s.label}
-                </span>
-              </div>
-            ))}
+          {/* 5o teams / 3 problems / 24 hours — one row on desktop (233:174
+              draws teams/hours side by side at y365 and problems centred
+              below at y448, not all three in a line; the flanking blades
+              sit at y460, level with "problems", not the top row). */}
+          <div className="mt-[36px] flex flex-col items-center gap-[18px] lg:mt-[93px] lg:w-full lg:max-w-[708px] lg:flex-row lg:items-start lg:justify-between lg:gap-0">
+            <div className="hidden lg:contents">
+              {STATS.map((s) => (
+                <div key={s.label} className="flex min-w-0 flex-col items-center">
+                  <span className="text-[58.34px] font-black uppercase leading-none text-haas-red">{s.value}</span>
+                  <span className="mt-[5px] text-[35px] font-extrabold uppercase leading-[44px] text-white">
+                    {s.label}
+                  </span>
+                </div>
+              ))}
+            </div>
+            <div className="flex items-start gap-16 lg:hidden">
+              {[STATS[0], STATS[2]].map((s) => (
+                <div key={s.label} className="flex min-w-0 flex-col items-center">
+                  <span className="text-[clamp(30px,7vw,58px)] font-black uppercase leading-none text-haas-red">
+                    {s.value}
+                  </span>
+                  <span className="mt-[5px] text-[clamp(13px,4.2vw,24px)] font-extrabold uppercase text-white">
+                    {s.label}
+                  </span>
+                </div>
+              ))}
+            </div>
+            <div className="relative flex min-w-0 flex-col items-center lg:hidden">
+              <SpeedStreak
+                viewBox={VB_BLADE_345}
+                d={P_BLADE_345}
+                delay={0.15}
+                strokeWidth={1}
+                restOpacity={0.5}
+                className="left-1/2 top-1/2 -z-10 h-[24px] w-[210px] -translate-x-[calc(50%+100px)] -translate-y-1/2"
+              />
+              <SpeedStreak
+                viewBox={VB_BLADE_345}
+                d={P_BLADE_345}
+                delay={0.25}
+                strokeWidth={1}
+                restOpacity={0.5}
+                className="left-1/2 top-1/2 -z-10 h-[24px] w-[210px] translate-x-[calc(-50%+100px)] -translate-y-1/2 scale-x-[-1]"
+              />
+              <span className="text-[clamp(30px,7vw,58px)] font-black uppercase leading-none text-haas-red">
+                {STATS[1].value}
+              </span>
+              <span className="mt-[5px] text-[clamp(13px,4.2vw,24px)] font-extrabold uppercase text-white">
+                {STATS[1].label}
+              </span>
+            </div>
           </div>
 
           {/* `Rectangle 24` (114:115 / 233:154) — the open red bracket that

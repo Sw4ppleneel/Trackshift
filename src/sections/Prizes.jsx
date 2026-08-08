@@ -115,7 +115,7 @@ export function Prizes() {
             className="mt-8 w-full max-w-[400px] object-contain lg:absolute lg:left-1/2 lg:top-[255px] lg:mt-0 lg:w-[587px] lg:max-w-none lg:-translate-x-1/2"
           />
 
-          <p className="mt-12 text-[32px] font-black uppercase text-white lg:absolute lg:left-[438px] lg:top-[625px] lg:mt-0 lg:w-[223px] lg:text-center">
+          <p className="hidden text-[32px] font-black uppercase text-white lg:absolute lg:left-[438px] lg:top-[625px] lg:block lg:w-[223px] lg:text-center">
             Prize pool
           </p>
           {/* `Vector 4` / `Vector 5` (114:225/226) — the chamfered white
@@ -142,10 +142,32 @@ export function Prizes() {
           {/* 114:224 — "INR" is hollow (transparent fill, white outline
               stroke); the number itself is solid white fill, no stroke. Two
               different treatments on one line, not one uniform style. */}
-          <p className="mt-2 text-[clamp(48px,10vw,94.7px)] font-extrabold leading-[0.95] lg:absolute lg:left-[385px] lg:top-[666px] lg:mt-0 lg:w-[666px] lg:text-center lg:leading-none">
+          <p className="hidden text-[clamp(48px,10vw,94.7px)] font-extrabold leading-[0.95] lg:absolute lg:left-[385px] lg:top-[666px] lg:block lg:w-[666px] lg:text-center lg:leading-none">
             <span style={{ color: "transparent", WebkitTextStroke: "0.89px #FFFFFF" }}>INR</span>
             <span className="text-white"> 1,75,OOO</span>
           </p>
+
+          {/* Mobile prize-pool frame (iPhone 13/14 export, ground truth) — a
+              chamfered border (top-left / bottom-right corners only) with
+              "Prize pool" set into the top rail as a legend, short dash to
+              its left and a long one running to the right edge. */}
+          <div className="relative mt-12 w-full lg:hidden">
+            <span className="absolute left-8 top-0 z-10 -translate-y-1/2 bg-black px-2 text-[16px] font-black uppercase text-white">
+              Prize pool
+            </span>
+            <div
+              className="border border-white/90 px-6 pb-8 pt-7"
+              style={{
+                clipPath:
+                  "polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px)",
+              }}
+            >
+              <p className="text-center text-[clamp(48px,10vw,64px)] font-extrabold leading-[0.95]">
+                <span style={{ color: "transparent", WebkitTextStroke: "0.89px #FFFFFF" }}>INR</span>
+                <span className="text-white"> 1,75,OOO</span>
+              </p>
+            </div>
+          </div>
 
           <div className="mt-12 flex flex-col items-center lg:absolute lg:inset-x-0 lg:top-0 lg:mt-0">
             <div className="relative lg:contents">
@@ -198,11 +220,14 @@ export function Prizes() {
               />
             </div>
             <div className="mt-4 flex w-full flex-col items-center gap-[18px] lg:absolute lg:inset-x-0 lg:top-[1046px] lg:mt-0 lg:gap-[10px]">
+              {/* Mobile bullets each detail line (237:292 `Frame 80`);
+                  desktop's own row has none. */}
               {DETAILS.map((d) => (
                 <p
                   key={d}
                   className="font-helvetica text-center text-[14px] leading-[1.4] text-white lg:max-w-[880px] lg:text-[20px] lg:leading-[28px]"
                 >
+                  <span className="lg:hidden">&bull;&nbsp; </span>
                   {d}
                 </p>
               ))}

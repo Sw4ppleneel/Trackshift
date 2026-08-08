@@ -109,7 +109,7 @@ export function StudentWords() {
           >
             &ldquo;
           </span>
-          <blockquote className="font-helvetica -mt-4 max-w-[659px] whitespace-pre-line text-[16px] font-normal leading-[1.4] text-white">
+          <blockquote className="-mt-4 max-w-[659px] whitespace-pre-line text-[16px] font-normal leading-[1.4] text-white">
             {redPunct(slide.quote)}
           </blockquote>
           <p className="mt-8 text-[28px] font-extrabold uppercase leading-none text-white">{slide.name}</p>

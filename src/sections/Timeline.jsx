@@ -98,10 +98,36 @@ export function Timeline() {
           className="left-1/2 top-[359px] -z-10 hidden h-[5px] w-[33px] -translate-x-1/2 lg:block"
         />
 
-        {/* Mobile: stacked day cards. */}
-        <div className="relative z-10 flex flex-col gap-10 px-6 pb-16 pt-8 lg:hidden">
-          <DayBlock num="o1" date="September 12" align="end" items={DAY1} />
-          <DayBlock num="o2" date="September 13" align="start" items={DAY2} />
+        {/* Mobile: stacked day cards (233:301) — both days centred (not the
+            desktop's left/right split-column alignment), each a single
+            Helvetica paragraph of items joined by " · " and wrapped, not a
+            bulleted vertical list. The red dash-capped divider between them
+            (237:307) is the desktop spine's short mobile counterpart. */}
+        <div className="relative z-10 flex flex-col items-center gap-10 px-6 pb-16 pt-8 lg:hidden">
+          <DayBlock num="o1" date="September 12" items={DAY1} />
+          <div className="relative h-[82px] w-[33px]">
+            <SpeedStreak
+              viewBox={VB_TL_DASH}
+              d={P_TL_DASH}
+              delay={0.1}
+              strokeWidth={1}
+              restOpacity={0.6}
+              className="left-0 top-0 -z-10 h-[5px] w-[33px]"
+            />
+            <span
+              className="absolute left-1/2 top-[5px] -z-10 h-[72px] w-px -translate-x-1/2 bg-haas-red"
+              style={{ opacity: 0.7 }}
+            />
+            <SpeedStreak
+              viewBox={VB_TL_DASH}
+              d={P_TL_DASH}
+              delay={0.2}
+              strokeWidth={1}
+              restOpacity={0.6}
+              className="bottom-0 left-0 -z-10 h-[5px] w-[33px]"
+            />
+          </div>
+          <DayBlock num="o2" date="September 13" items={DAY2} />
         </div>
 
         {/* Desktop: the two columns at the design's coordinates. */}
@@ -130,23 +156,17 @@ export function Timeline() {
   );
 }
 
-function DayBlock({ num, date, align, items }) {
+function DayBlock({ num, date, items }) {
   return (
-    <div className={`flex flex-col ${align === "end" ? "items-end text-right" : "items-start text-left"}`}>
+    <div className="flex flex-col items-center text-center">
       <p className="text-[26px] font-black uppercase leading-none text-haas-red">
         <span className="opacity-50">Day</span> {num}{" "}
         <span className="opacity-50">//</span>{" "}
         <span className="text-white">{date}</span>
       </p>
-      <ul
-        className={`mt-5 flex flex-col gap-[10px] text-[14px] font-medium leading-[1.35] text-white ${
-          align === "end" ? "items-end" : "items-start"
-        }`}
-      >
-        {items.map((d) => (
-          <li key={d}>{d}</li>
-        ))}
-      </ul>
+      <p className="font-helvetica mt-5 max-w-[320px] text-[14px] leading-[1.35] text-white">
+        {items.join(" · ")}
+      </p>
     </div>
   );
 }

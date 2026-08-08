@@ -104,8 +104,26 @@ export function Leadership() {
             className="w-full max-w-[300px] self-center object-cover lg:absolute lg:left-[232px] lg:top-[224px] lg:w-[454px] lg:max-w-none lg:self-auto"
           />
 
-          <div className="flex flex-col lg:absolute lg:left-[730px] lg:top-[274px] lg:max-w-[488px]">
-            <p className="whitespace-pre-line text-[16px] font-medium leading-[1.4] text-white lg:leading-[1.25]">
+          <div className="relative flex flex-col lg:static lg:left-[730px] lg:top-[274px] lg:max-w-[488px] lg:absolute">
+            {/* Mobile-only quote marks (237:534/535) — desktop's pair sits
+                behind the whole slide at fixed page coordinates; on mobile
+                they instead bracket just the quote text, top-left open /
+                bottom-right close, since the card reflows to fit the copy. */}
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute -left-1 -top-6 select-none text-[72px] font-black leading-none lg:hidden"
+              style={{ color: "transparent", WebkitTextStroke: "1px #D6001C" }}
+            >
+              &ldquo;
+            </span>
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute -bottom-8 right-0 rotate-180 select-none text-[72px] font-black leading-none lg:hidden"
+              style={{ color: "transparent", WebkitTextStroke: "1px #D6001C" }}
+            >
+              &ldquo;
+            </span>
+            <p className="whitespace-pre-line pt-14 text-[16px] font-medium leading-[1.4] text-white lg:pt-0 lg:leading-[1.25]">
               {redPunct(slide.quote)}
             </p>
             {/* `Frame 31` (114:366) — both lines are centred in their own

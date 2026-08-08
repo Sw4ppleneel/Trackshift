@@ -20,11 +20,12 @@ export function CarouselNav({ index, count, setIndex, className = "" }) {
           aria-label={`Go to slide ${i + 1}`}
           className="h-[5px] w-[33px]"
         >
-          <svg viewBox={VB_TL_DASH} preserveAspectRatio="none" className="h-full w-full" aria-hidden="true">
-            <path
-              d={P_TL_DASH}
-              className={`transition-colors ${i === index ? "fill-haas-red" : "fill-white/30"}`}
-            />
+          <svg viewBox={VB_TL_DASH} preserveAspectRatio="none" className="h-full w-full overflow-visible" aria-hidden="true">
+            {i === index ? (
+              <path d={P_TL_DASH} className="fill-haas-red" />
+            ) : (
+              <path d={P_TL_DASH} fill="none" stroke="#D6001C" strokeWidth={1} vectorEffect="non-scaling-stroke" />
+            )}
           </svg>
         </button>
       ))}
